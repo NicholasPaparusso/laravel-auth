@@ -3,12 +3,24 @@
 @section('content')
 
     <div class="container index">
+
+
         <div class="d-flex justify-content-center align-items-center">
             <h3 class="mx-4">
                 Lista dei progetti
             </h3>
             {{$projects->links()}}
         </div>
+
+        @if (session('deleted'))
+
+        <div class="container d-flex justify-content-center pt-5">
+            <div class=" text-center w-25 alert alert-info" role="alert">
+                {{session('deleted')}}
+              </div>
+        </div>
+
+       @endif
         <div class="d-flex justify-content-center" >
             <a class="btn np-btn-order" href="{{ route('admin.projects.orderby' , ['name',  $direction])}}">Ordina per titolo</a>
             <a class="btn np-btn-order" href="{{ route('admin.projects.orderby' , ['id',  $direction])}}">Ordina per Id</a>
@@ -31,7 +43,7 @@
                                 </h3>
                             </div>
                             <div class="edit-discard w-100 px-5 pb-2 d-flex justify-content-around">
-                                @include('widgets.delete')
+                                @include('widgets.delete',$project)
                                 @include('widgets.info')
                                 @include('widgets.modify')
                             </div>

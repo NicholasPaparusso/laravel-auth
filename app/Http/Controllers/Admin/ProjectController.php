@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Project;
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Requests\ProjectRequest;
+
 
 class ProjectController extends Controller
 {
@@ -17,7 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(8);
+        $projects = Project::orderby('id','desc')->paginate(8);
         $direction = 'desc';
         return view('admin.projects.index', compact('projects','direction'));
     }
@@ -36,7 +36,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -45,9 +45,17 @@ class ProjectController extends Controller
      * @param  \App\Http\Requests\StoreProjectRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProjectRequest $request)
+    public function store(ProjectRequest $request)
     {
-        //
+        $project_form = $request->all();
+        $project_form['slug']= Project::generateSlug($project_form['name']);
+
+        // $new_project = new Project();
+        // $new_project->fill($project_form);
+        // $new_project->save();
+
+        $new_project = Project::create($project_form);
+        return redirect(route('admin.projects.show', $new_project))->with('message', 'Progetto inizializzato correttamente');
     }
 
     /**
@@ -69,7 +77,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -79,9 +87,19 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(ProjectRequest $request, Project $project)
     {
-        //
+        $project_form = $request->all();
+
+        if($project_form['name'] != $project->name){
+            $project_form['slug'] = Project::generateSlug($project_form['title']);
+        }else{
+            $project_form['slug'] = $project->slug;
+        }
+
+        $project->update($project_form);
+
+        return redirect(route('admin.projects.show', $project))->with('message', 'Progetto modificato correttamente');
     }
 
     /**
@@ -92,6 +110,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect(route('admin.projects.index'))->with('deleted','Progetto eliminato con successo');
     }
 }

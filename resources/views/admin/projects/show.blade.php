@@ -1,9 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container show d-flex align-items-center justify-content-center ">
 
-        <div class="np-card col-6 my-4 d-flex flex-column align-items-center justify-content-center">
+   @if (session('message'))
+
+    <div class="container d-flex justify-content-center pt-5">
+        <div class=" w-25 alert alert-info" role="alert">
+            {{session('message')}}
+          </div>
+    </div>
+
+   @endif
+
+    <div class="container pt-5 show d-flex align-items-center justify-content-center ">
+        <div class="np-card col-6  d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex pt-4 justify-content-between">
                 <div class="d-flex" >
                     <p>
@@ -13,7 +23,7 @@
                         {{$project->name}}
                     </h3>
                     <div class="edit-discard">
-                        @include('widgets.delete')
+                        @include('widgets.delete', $project)
                         @include('widgets.modify')
                         @include('widgets.previous')
                     </div>

@@ -222,7 +222,7 @@ ul{
     }
 
     .edit-discard{
-        opacity: 0;
+
         transition: all .3s;
 
         .np-btn{
@@ -269,7 +269,7 @@ ul{
 //* Show *//
 
 .show{
-    height: 80vh;
+    height: 65vh;
 
     .client{
         span{
@@ -331,3 +331,35 @@ nav .pagination{
     }
 }
 //* order btn *//
+
+//* form *//
+
+.form-container{
+    .resize{
+        max-width: 300px;
+    }
+
+    .np-btn{
+        background-color: white;
+        font-size: .9em;
+        font-weight: bold;
+        transition: all .3s;
+        &:hover{
+            background-color: lightblue;
+            color: #303030;
+        }
+    }
+
+    h3{
+        padding-bottom: 50px;
+        color: lightblue;
+        font-weight: bold;
+    }
+}
+//* form *//
+
+
+
+.modal-header, .modal-body, .modal-footer{
+    background-color: #303030;
+}
