@@ -1,0 +1,234 @@
+@import '~bootstrap/scss/bootstrap';
+body{
+    background-color: #0e0e0e;
+    overflow-y: hidden;
+    color: white;
+}
+.main{
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+
+}
+
+.header-style{
+    border-bottom: 1px solid rgba(173, 216, 230, 0.3);
+}
+
+.logo{
+    height: 71px;
+    img{
+        width: 40px;
+        margin-right: 1em;
+        transition: all .3s;
+    }
+}
+
+.owner{
+    h1{
+        a{
+            font-size: 22px;
+            ;
+            padding: 10px;
+            font-weight: bold;
+            transition: all .5s;
+            &:hover {
+                color: lightblue;
+            }
+
+        }
+    }
+}
+
+.guest-header{
+    border-bottom: 1px solid rgba(173, 216, 230, 0.3);
+}
+
+header{
+
+
+    .navbar{
+        height: 70px;
+        padding: 0;
+        margin: 0;
+    }
+
+    height: 70px;
+
+
+
+    .nav-link{
+        color: white;
+        font-size: .9em;
+        font-weight: bold;
+
+
+        &:hover {
+            color: lightblue;
+        }
+
+    }
+
+    .project-owner{
+        padding-left: 50px;
+        h1{
+            font-size: 20px;
+            ;
+            font-weight: bold;
+        }
+    }
+
+    .np-link{
+        position: relative;
+        top: 0;
+        transition: all .5s;
+
+        &::after{
+            content: '';
+            width: 105%;
+            border: 2px solid lightblue;
+            border-radius: 2px;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            opacity: 0;
+            transition: all .5s;
+        }
+
+        &:hover::after{
+            opacity: 1;
+        }
+
+        i{
+            margin-left: 10px;
+        }
+    }
+}
+
+.aside{
+
+    height: calc(100vh - 70px);
+    border-right: 1px solid rgba(173, 216, 230, 0.3) ;
+
+    li{
+        padding-top: 20px;
+    }
+
+    a{
+
+        font-size: .9em;
+        font-weight: bold;
+        transition: all .3s;
+
+        &:hover {
+            color: lightblue;
+        }
+
+        i{
+            margin-right: 5px;
+        }
+    }
+}
+
+
+
+.index{
+    h3{
+        text-align: center;
+        font-size: 22px;
+        padding: 30px 0;
+        font-weight: bold;
+    }
+
+    table{
+
+
+
+        img{
+            width: 100px;
+            height: 50px;
+        }
+    }
+}
+
+//* Reset *//
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+
+//* Reset *//
+
+//* Card *//
+.np-card{
+
+    cursor: pointer;
+    border-radius: 20px;
+
+    .content{
+        h3{
+            font-size: 1.1em;
+            transition: all .3s;
+        }
+    }
+    .thumb{
+        overflow: hidden;
+        border-radius: 10px;
+
+        width: 80%;
+        img{
+            width: 100%;
+            object-fit: cover;
+            transition: all .5s;
+        }
+    }
+
+    .edit-discard{
+        opacity: 0;
+        transition: all .3s;
+
+        .np-btn{
+            color: white;
+
+            &:hover{
+                color: lightblue;
+            }
+        }
+    }
+
+    &:hover {
+        box-shadow: rgba(173, 216, 230, 0.2) 0px 7px 29px 0px;
+        img{
+            transform: scale(1.2);
+        }
+
+        h3{
+            color: lightblue;
+        }
+
+        .edit-discard{
+            opacity: 1;
+        }
+    }
+
+}
+//* Card *//
+
+//* Login e registrazione *//
+.np-card-header{
+    background-color: #303030;
+    font-weight: bold;
+}
+
+.np-card-body{
+    background-color: #303030;
+
+}
+//* Login e registrazione *//
