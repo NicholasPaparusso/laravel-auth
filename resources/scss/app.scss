@@ -45,6 +45,31 @@ body{
 
 header{
 
+    .np-btn-submit{
+        background-color: white;
+        color: #303030;
+        font-weight: bold;
+        font-size: .9em;
+
+
+        &:hover{
+            background-color: lightblue;
+            color: #303030;
+        }
+    }
+
+    .np-form-text{
+        padding: 5px;
+        background-color: white;
+        outline: none;
+        border: 1px solid lightblue;
+        border-radius: 10px;
+
+
+        &:focus{
+            background-color: lightblue;
+        }
+    }
 
     .navbar{
         height: 70px;
@@ -232,3 +257,51 @@ ul{
 
 }
 //* Login e registrazione *//
+
+
+
+//* Show *//
+
+.show{
+    height: 80vh;
+
+    .client{
+        span{
+            margin-left: 10px;
+            color: lightblue;
+        }
+    }
+
+}
+
+
+//* Show *//
+
+//* page-link *//
+
+nav .pagination{
+    margin: 0;
+
+    .page-link{
+        border: 1px solid white;
+        background-color: #303030;
+        color: white;
+        padding: 5px 12px ;
+        margin: 10px;
+
+        &:hover{
+            background-color: lightblue;
+            color: black;
+        }
+    }
+
+
+    .page-item.active .page-link{
+        border: 1px solid lightblue;
+        background-color: lightblue ;
+        color: black;
+    }
+}
+
+//* page-link *//
+
