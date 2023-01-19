@@ -35,7 +35,7 @@
                     @else
 
                     @auth
-                        <div class="px-5">
+                        <div class="me-5">
                             <form class="d-flex" action="" >
                                 <input class=" np-form-text" type="text" placeholder="Inserire il nome del progetto" name="" id="">
                                 <button class=" mx-2 btn btn-sm np-btn-submit" type="submit" >Cerca</button>

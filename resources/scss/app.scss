@@ -197,10 +197,16 @@ ul{
     cursor: pointer;
     border-radius: 20px;
 
+    h5{
+        font-size: .85em;
+        transition: all .3s;
+    }
+
     .content{
         h3{
             font-size: 1.1em;
             transition: all .3s;
+            padding: 25px 0 0 0;
         }
     }
     .thumb{
@@ -234,7 +240,7 @@ ul{
             transform: scale(1.2);
         }
 
-        h3{
+        h3, h5{
             color: lightblue;
         }
 
@@ -272,6 +278,10 @@ ul{
         }
     }
 
+    .project-title{
+        max-width: 350px;
+    }
+
 }
 
 
@@ -305,3 +315,19 @@ nav .pagination{
 
 //* page-link *//
 
+
+//* order btn *//
+.np-btn-order{
+    background-color: #303030;
+    margin: 10px;
+    color: lightblue;
+    transition: all .5s;
+    font-size: .9em;
+    font-weight: bold;
+    &:hover{
+        background-color: lightblue;
+        color: #303030;
+        transform: scale(1.05);
+    }
+}
+//* order btn *//

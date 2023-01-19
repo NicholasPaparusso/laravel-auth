@@ -8,13 +8,13 @@
             </li>
 
             <li>
-                <a class="aside-link" href="{{route('project.index')}}">
+                <a class="aside-link" href="{{route('admin.projects.index')}}">
                      <i class="fa-solid fa-newspaper"></i> Projects
                 </a>
             </li>
 
             <li>
-                <a class="aside-link" href="{{route('project.create')}}">
+                <a class="aside-link" href="{{route('admin.projects.create')}}">
                     <i class="fa-solid fa-file-circle-plus"></i> new Project
                 </a>
             </li>
