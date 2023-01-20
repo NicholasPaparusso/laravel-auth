@@ -26,7 +26,7 @@ class ProjectRequest extends FormRequest
         return [
             'name' => 'required|max:100|min:3',
             'client_name' => 'required|max:100|min:3',
-            'cover_image' => 'required|max:255|min:10',
+            'cover_image' => 'nullable|image|max:32000bit',
             'summary' => 'required|max:1000',
         ];
     }
@@ -41,9 +41,9 @@ class ProjectRequest extends FormRequest
             'client_name.max' => 'Il nome cliente può avere massimo :max caratteri',
             'client_name.min' => 'Il nome cliente può avere massimo :min caratteri',
 
-            'cover_image.required' => 'L\'immagine  è un campo obbligatorio',
-            'cover_image.max' => 'L\'url può avere massimo :max caratteri ',
-            'cover_image.min' => 'L\'url può avere massimo :min caratteri ',
+
+            'cover_image.max' => 'il file immagine deve essere al massimo di 3 mega',
+            'cover_image.image' => 'Il file immagine non è corretto ',
 
             'summary.required' => 'Il sommario  è un campo obbligatorio',
             'summary.max' => 'Il sommario può avere massimo :max caratteri',

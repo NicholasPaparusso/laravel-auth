@@ -6,7 +6,7 @@
     <h3 class="text-center">Creazione nuovo post</h3>
     <div class="row">
 
-        <div class="col-5 offset-3">    <form action="{{route('admin.projects.store')}}" method="POST">
+        <div class="col-5 offset-3">    <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
               <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
@@ -31,10 +31,10 @@
               </div>
 
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Thumb</label>
-                <input type="text" class="form-control  @error('cover_image') is-invalid @enderror" name="cover_image" placeholder="Inserisci Url immagine"  value="{{old('cover_image')}}"  id="exampleInputPassword1">
-
-
+                <label for="cover_image" class="form-label">Thumb</label>
+                <input
+                onchange="showImage(event)"
+                type="file" class="form-control  @error('cover_image') is-invalid @enderror" name="cover_image" id="cover_image">
                 @error('cover_image')
                 <p class="invalid-feedback">
                   {{$message}}
@@ -42,9 +42,14 @@
                 @enderror
               </div>
 
+
+              <div>
+                <img width="200" id="show-image" src="" alt="">
+              </div>
+
               <div class="mb-3">
                 <label for="summary" class="form-label">Sommario</label>
-               <textarea class="editor" name="summary" id="summary" cols="30" rows="10">{{old('summary')}}</textarea>
+               <textarea class=" editor" name="summary" id="summary" cols="30" rows="10">{{old('summary')}}</textarea>
 
                @error('summary')
                <p class="invalid-feedback">
@@ -52,10 +57,10 @@
                </p>
                @enderror
               </div>
-
               <button type="submit" class="btn np-btn">invio</button>
 
-        </form></div>
+        </form>
+    </div>
         <div class="col-4">
             @if ($errors->any())
 
@@ -77,13 +82,20 @@
 
 <script>
     ClassicEditor
-        .create( document.querySelector( '#summary' ),{
+        .create( document.querySelector( '#summary' ) ,{
             toolbar:  [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-        } )
+        })
         .catch( error => {
             console.error( error );
         } );
-</script>
 
+</script>
+<script>
+
+function showImage(event){
+        const tagImage = document.getElementById('show-image');
+        tagImage.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
 
 @endsection

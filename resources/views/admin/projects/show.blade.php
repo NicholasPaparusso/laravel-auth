@@ -30,12 +30,15 @@
                 </h3>
                 </div>
             </div>
+            @if ($project->cover_image)
             <div class="thumb my-4">
-                <img src="{{$project->cover_image}}" alt="{{$project->name}}">
+                <img src="{{asset('storage/'.$project->cover_image)}}" alt="{{$project->original_image_name}}">
             </div>
+            @endif
+
             <div class="content px-4">
                 <p class="summary">
-                    {{$project->summary}}
+                    {!!$project->summary!!}
                 </p>
                 <p class="client">
                     Lavoro commisionato da: <span>{{$project->client_name}}</span>

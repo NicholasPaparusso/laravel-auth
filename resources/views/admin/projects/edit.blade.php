@@ -7,7 +7,7 @@
     <div class="row">
 
         <div class="col-5 offset-3">
-            <form action="{{route('admin.projects.update', $project)}}" method="POST">
+            <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
               <div class="mb-3">
@@ -34,7 +34,7 @@
 
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Thumb</label>
-                <input type="text" class="form-control  @error('cover_image') is-invalid @enderror" name="cover_image" placeholder="Inserisci Url immagine"  value="{{old('cover_image',$project->cover_image)}}"  id="exampleInputPassword1">
+                <input  onchange="showImage(event)" type="file" class="form-control  @error('cover_image') is-invalid @enderror" name="cover_image" placeholder="Inserisci Url immagine"  value="{{old('cover_image',$project->cover_image)}}"  id="exampleInputPassword1">
 
 
                 @error('cover_image')
@@ -42,6 +42,10 @@
                   {{$message}}
                 </p>
                 @enderror
+              </div>
+
+              <div>
+                <img width="200" id="show-image" src="" alt="">
               </div>
 
               <div class="mb-3">
@@ -56,6 +60,7 @@
               </div>
 
               <button type="submit" class="btn np-btn">invio</button>
+              @include('widgets.delete',$project)
 
         </form></div>
         <div class="col-4">
@@ -86,6 +91,15 @@
             console.error( error );
         } );
 </script>
+
+<script>
+
+    function showImage(event){
+            const tagImage = document.getElementById('show-image');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+
 
 
 @endsection

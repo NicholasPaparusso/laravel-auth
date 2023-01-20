@@ -33,9 +33,16 @@
                             <div class="">
                                 <h5 class="mt-2">{{$project->id}}</h5>
                             </div>
+
                             <div class="thumb mt-1">
-                                <img src="{{$project->cover_image}}" alt="{{$project->name}}">
+                                <img src="{{asset('storage/'.$project->cover_image)}}" alt="{{$project->original_image_name}}">
                             </div>
+
+                            @if (is_null($project->cover_image))
+                            <div class="thumb mt-1">
+                                <img src="https://i.pinimg.com/originals/c6/f6/32/c6f6326eaf98a219d264b4be08926cc7.jpg" alt="no-image">
+                            </div>
+                            @endif
                             <div class="content px-4">
                                 <h3 class="project-title">
                                     <a href="{{route('admin.projects.show', $project)}}">{{$project->name}}</a>
