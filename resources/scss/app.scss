@@ -3,6 +3,7 @@ body{
     background-color: #0e0e0e;
     overflow-y: hidden;
     color: white;
+
 }
 .main{
     height: calc(100vh - 70px);
@@ -25,6 +26,7 @@ body{
 
 .owner{
     h1{
+        color: white;
         a{
             font-size: 22px;
             ;
@@ -130,7 +132,7 @@ header{
 }
 
 .aside{
-
+    color: white;
     height: calc(100vh - 70px);
     border-right: 1px solid rgba(173, 216, 230, 0.3) ;
 
@@ -207,6 +209,12 @@ ul{
             font-size: 1.1em;
             transition: all .3s;
             padding: 25px 0 0 0;
+
+            a{
+                &:hover{
+                    color: lightblue;
+                }
+            }
         }
     }
     .thumb{
@@ -356,10 +364,19 @@ nav .pagination{
         font-weight: bold;
     }
 }
+
+.ck{
+    color: black;
+    height: 200px;
+}
 //* form *//
 
 
 
 .modal-header, .modal-body, .modal-footer{
     background-color: #303030;
+}
+
+.modal .delete{
+    background-color: rgb(120, 61, 61);
 }

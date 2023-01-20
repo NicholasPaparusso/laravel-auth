@@ -26,6 +26,8 @@ Route::middleware(['auth','verified'])
         Route::get('/', [DashboardController::class, 'index'])->name('home');
         Route::resource('projects', ProjectController::class);
 
+        //  Route::get('projects/search', [ProjectController::class, 'search'])->name('projects.search');
+
         Route::get('projects/orderby/{column}/{direction}', [ProjectController::class, 'orderby'])->name('projects.orderby');
     });
 

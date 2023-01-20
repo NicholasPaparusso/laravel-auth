@@ -29,8 +29,7 @@
             <div class="row">
             @forelse ($projects as $project )
                 <div class="col-3">
-                    <a class="d-flex flex-column align-items-center justify-content-center" href="{{route('admin.projects.show', $project)}}">
-                        <div class="np-card my-4 ">
+                        <div class="d-flex flex-column align-items-center justify-content-center np-card my-4 ">
                             <div class="">
                                 <h5 class="mt-2">{{$project->id}}</h5>
                             </div>
@@ -39,7 +38,7 @@
                             </div>
                             <div class="content px-4">
                                 <h3 class="project-title">
-                                    {{$project->name}}
+                                    <a href="{{route('admin.projects.show', $project)}}">{{$project->name}}</a>
                                 </h3>
                             </div>
                             <div class="edit-discard w-100 px-5 pb-2 d-flex justify-content-around">
@@ -48,7 +47,7 @@
                                 @include('widgets.modify')
                             </div>
                         </div>
-                    </a>
+
                 </div>
             @empty
                 <span>Nessun progetto trovato</span>

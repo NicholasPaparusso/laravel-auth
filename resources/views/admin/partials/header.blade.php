@@ -36,8 +36,9 @@
 
                     @auth
                         <div class="me-5">
-                            <form class="d-flex" action="" >
-                                <input class=" np-form-text" type="text" placeholder="Inserire il nome del progetto" name="" id="">
+                            <form class="d-flex" action="{{route('admin.projects.index')}}" method="get" >
+                                @csrf
+                                <input class=" np-form-text"  type="text" placeholder="Inserire il nome del progetto" name="search" id="search">
                                 <button class=" mx-2 btn btn-sm np-btn-submit" type="submit" >Cerca</button>
                             </form>
                         </div>

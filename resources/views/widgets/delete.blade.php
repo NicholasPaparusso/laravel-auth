@@ -1,11 +1,4 @@
-{{-- <form
-    class="d-inline"
-    onsubmit="return confirm('Confermi di voler eliminare: {{$project->title}} ')"
-    action="{{route('admin.projects.destroy', $project)}}" method="POST">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn np-btn delete" href="#"><i class="fa-solid fa-trash"></i></button>
-</form> --}}
+{{-- --}}
 
 <button type="button" class="btn np-btn delete" data-bs-toggle="modal" data-bs-target="#modal{{$project->id}}">
     <i class="fa-solid fa-trash"></i>
@@ -24,7 +17,13 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-          <button type="button" class="btn btn-primary">Elimina</button>
+          <form
+          class="d-inline"
+          action="{{route('admin.projects.destroy', $project)}}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn np-btn delete" href="#">Elimina</button>
+      </form>
         </div>
       </div>
     </div>

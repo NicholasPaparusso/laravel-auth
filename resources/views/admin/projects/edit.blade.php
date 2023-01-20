@@ -46,7 +46,7 @@
 
               <div class="mb-3">
                 <label for="summary" class="form-label">Sommario</label>
-               <textarea class="form-control  @error('summary') is-invalid @enderror" name="summary" id="summary" cols="30" rows="10">{{old('summary',$project->summary)}}</textarea>
+               <textarea class=" editor" name="summary" id="summary" cols="30" rows="10">{{old('summary',$project->summary)}}</textarea>
 
                @error('summary')
                <p class="invalid-feedback">
@@ -76,5 +76,16 @@
 
 
 </div>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#summary' ) ,{
+            toolbar:  [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        })
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 
 @endsection
