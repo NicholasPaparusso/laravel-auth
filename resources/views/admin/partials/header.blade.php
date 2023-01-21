@@ -1,10 +1,10 @@
-<header class="shadow-sm">
+<header class=" shadow-sm">
     <nav class="navbar navbar-expand-md   ">
 
         <div class="container-fluid px-3">
 
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse  " id="navbarSupportedContent">
 
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">

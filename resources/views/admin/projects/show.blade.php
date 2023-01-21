@@ -12,8 +12,8 @@
 
    @endif
 
-    <div class="container pt-5 show d-flex align-items-center justify-content-center ">
-        <div class="np-card col-6  d-flex flex-column align-items-center justify-content-center">
+    <div class="container  show d-flex align-items-center justify-content-center ">
+        <div class="np-card mt-5 col-6  d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex pt-4 justify-content-between">
                 <div class="d-flex" >
                     <p>
@@ -33,6 +33,11 @@
             @if ($project->cover_image)
             <div class="thumb my-4">
                 <img src="{{asset('storage/'.$project->cover_image)}}" alt="{{$project->original_image_name}}">
+            </div>
+            @endif
+            @if (is_null($project->cover_image))
+            <div class="thumb my-4">
+                <img src="https://i.pinimg.com/originals/c6/f6/32/c6f6326eaf98a219d264b4be08926cc7.jpg" alt="no-image">
             </div>
             @endif
 

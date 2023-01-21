@@ -7,7 +7,8 @@
     <div class="row">
 
         <div class="col-5 offset-3">
-            <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
+            @include('widgets.delete',$project)
+            <form class="mt-3" action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
               <div class="mb-3">
@@ -33,8 +34,8 @@
               </div>
 
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Thumb</label>
-                <input  onchange="showImage(event)" type="file" class="form-control  @error('cover_image') is-invalid @enderror" name="cover_image" placeholder="Inserisci Url immagine"  value="{{old('cover_image',$project->cover_image)}}"  id="exampleInputPassword1">
+                <label for="cover_image" class="form-label">Thumb</label>
+                <input  onchange="showImage(event)" type="file" class="form-control  @error('cover_image') is-invalid @enderror" name="cover_image" placeholder="Carica un'immagine"  value="{{old('cover_image',$project->cover_image)}}"  id="cover_image">
 
 
                 @error('cover_image')
@@ -60,9 +61,12 @@
               </div>
 
               <button type="submit" class="btn np-btn">invio</button>
-              @include('widgets.delete',$project)
 
-        </form></div>
+
+
+        </form>
+
+    </div>
         <div class="col-4">
             @if ($errors->any())
 
