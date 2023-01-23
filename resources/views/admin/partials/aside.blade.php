@@ -21,11 +21,10 @@
 
             <li>
                 <a class="aside-link" href="{{route('admin.projects.types_project')}}">
-                    <i class="fa-solid fa-tags"></i> Projects/Categories
+                    <i class="fa-solid fa-tags"></i> Types
                 </a>
             </li>
-
-
         </ul>
     </nav>
 </aside>
+
