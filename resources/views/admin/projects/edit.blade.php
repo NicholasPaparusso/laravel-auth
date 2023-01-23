@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container py-5 form-container ">
+<div class="container pb-5 form-container ">
     <h3 class="text-center">Modifica {{$project->name}}</h3>
     <div class="row">
 

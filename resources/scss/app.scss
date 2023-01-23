@@ -292,6 +292,7 @@ ul{
 
     .project-title{
         max-width: 350px;
+        font-size: 1.5em;
     }
 
 }
@@ -377,7 +378,7 @@ nav .pagination{
 //* form *//
 
 
-
+//*modal*//
 .modal-header, .modal-body, .modal-footer{
     background-color: #303030;
 }
@@ -385,3 +386,23 @@ nav .pagination{
 .modal .delete{
     background-color: rgb(120, 61, 61);
 }
+//*modal*//
+
+//*badge*//
+.badge{
+    background-color: cornflowerblue;
+    &.css{
+        background-color: rgb(219, 146, 12);
+    }
+    &.php{
+        background-color: brown;
+    }
+    &.html{
+        background-color: blue;
+    }
+    &.javascript{
+        background-color: rgb(9, 153, 88);
+
+    }
+}
+//*badge*//

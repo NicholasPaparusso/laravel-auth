@@ -15,19 +15,22 @@
     <div class="container  show d-flex align-items-center justify-content-center ">
         <div class="np-card mt-5 col-6  d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex pt-4 justify-content-between">
-                <div class="d-flex" >
+                <div class="d-flex align-items-center" >
                     <p>
                         ID: {{$project->id}}
                     </p>
-                    <h3 class="project-title ms-5">
+
+                    <h3 class="project-title ms-3">
                         {{$project->name}}
                     </h3>
+                    @if (isset($project->type->id))
+                    <div class=" badge mx-3 {{$project->type?->slug}}"> {{$project->type?->name}}</div>
+                    @endif
                     <div class="edit-discard">
                         @include('widgets.delete', $project)
                         @include('widgets.modify')
                         @include('widgets.previous')
                     </div>
-                </h3>
                 </div>
             </div>
             @if ($project->cover_image)

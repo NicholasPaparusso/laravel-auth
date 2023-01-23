@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container index py-5">
+    <div class="container index pb-5">
         {{-- @dd(session('update')) --}}
 
         <div class="d-flex justify-content-center align-items-center">
@@ -45,7 +45,7 @@
                             <div class="d-flex justify-content-around w-100">
                                 <h5 class="mt-2">ID: {{$project->id}}</h5>
                                 @if (isset($project->type->id))
-                                <div class="mt-2 badge text-bg-primary {{$project->type?->name}}"> {{$project->type?->name}}</div>
+                                <div class="mt-2 badge  {{$project->type?->slug}}"> {{$project->type?->name}}</div>
                                 @endif
                             </div>
                             @if (!is_null($project->cover_image))
