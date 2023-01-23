@@ -15,7 +15,13 @@
 
             <li>
                 <a class="aside-link" href="{{route('admin.projects.create')}}">
-                    <i class="fa-solid fa-file-circle-plus"></i> new Project
+                    <i class="fa-solid fa-file-circle-plus"></i> New Project
+                </a>
+            </li>
+
+            <li>
+                <a class="aside-link" href="{{route('admin.projects.types_project')}}">
+                    <i class="fa-solid fa-tags"></i> Projects/Categories
                 </a>
             </li>
 

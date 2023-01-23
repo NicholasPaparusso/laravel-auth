@@ -24,11 +24,13 @@ Route::middleware(['auth','verified'])
     ->prefix('admin')
     ->group(function(){
         Route::get('/', [DashboardController::class, 'index'])->name('home');
+        Route::get('projects/type', [ProjectController::class, 'types_project'])->name('projects.types_project');
         Route::resource('projects', ProjectController::class);
 
         //  Route::get('projects/search', [ProjectController::class, 'search'])->name('projects.search');
 
         Route::get('projects/orderby/{column}/{direction}', [ProjectController::class, 'orderby'])->name('projects.orderby');
+        // Route::resource('types', TypeController::class)->except
     });
 
 

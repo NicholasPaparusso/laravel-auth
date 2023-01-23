@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container index">
+    <div class="container index py-5">
         {{-- @dd(session('update')) --}}
 
         <div class="d-flex justify-content-center align-items-center">
@@ -39,18 +39,23 @@
         </div>
             <div class="row">
             @forelse ($projects as $project )
+
                 <div class="col-3">
                         <div class="d-flex flex-column align-items-center justify-content-center np-card my-4 index-card ">
-                            <div class="">
-                                <h5 class="mt-2">{{$project->id}}</h5>
+                            <div class="d-flex justify-content-around w-100">
+                                <h5 class="mt-2">ID: {{$project->id}}</h5>
+                                @if (isset($project->type->id))
+                                <div class="mt-2 badge text-bg-primary {{$project->type?->name}}"> {{$project->type?->name}}</div>
+                                @endif
                             </div>
-
-                            <div class="thumb mt-1">
+                            @if (!is_null($project->cover_image))
+                            <div class="thumb mt-3">
                                 <img src="{{asset('storage/'.$project->cover_image)}}" alt="{{$project->original_image_name}}">
                             </div>
+                            @endif
 
                             @if (is_null($project->cover_image))
-                            <div class="thumb mt-1 ">
+                            <div class="thumb mt-3">
                                 <img src="https://i.pinimg.com/originals/c6/f6/32/c6f6326eaf98a219d264b4be08926cc7.jpg" alt="no-image">
                             </div>
                             @endif

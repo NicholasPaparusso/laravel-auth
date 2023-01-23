@@ -23,6 +23,20 @@
               </div>
 
               <div class="mb-3">
+                <label for="name" class="form-label">Categoria</label>
+                <select class="form-select resize" name="type_id" name="name" value="{{old('name')}}" aria-describedby="emailHelp">
+                    <option value=""> Selezionare una categoria </option>
+                    @foreach ($types as $type )
+                    <option
+                    @if ($type->id == old('type_id', $project->type?->id) )
+                    selected
+                    @endif
+                    value="{{$type->id}}" > {{$type->name}} </option>
+                    @endforeach
+                </select>
+              </div>
+
+              <div class="mb-3">
                 <label for="client_name" class="form-label">Cliente</label>
                 <input type="text" class="form-control  @error('client_name') is-invalid @enderror resize" name="client_name"  value="{{old('client_name',$project->client_name)}}"  id="client_name">
 
